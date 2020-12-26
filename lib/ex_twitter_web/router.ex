@@ -25,7 +25,6 @@ defmodule ExTwitterWeb.Router do
     live "/posts/:id/show/edit", PostLive.Show, :edit
   end
 
-
   # Other scopes may use custom stacks.
   # scope "/api", ExTwitterWeb do
   #   pipe_through :api
@@ -43,7 +42,7 @@ defmodule ExTwitterWeb.Router do
 
     scope "/" do
       pipe_through :browser
-      live_dashboard "/dashboard", metrics: ExTwitterWeb.Telemetry
+      live_dashboard "/dashboard", metrics: ExTwitterWeb.Telemetry, ecto_repos: [ExTwitter.Repo]
     end
   end
 end

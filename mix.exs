@@ -20,7 +20,7 @@ defmodule ExTwitter.MixProject do
   def application do
     [
       mod: {ExTwitter.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :os_mon]
     ]
   end
 
@@ -46,7 +46,8 @@ defmodule ExTwitter.MixProject do
       {:telemetry_poller, "~> 0.4"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:ecto_psql_extras, "~> 0.2"}
     ]
   end
 
@@ -56,6 +57,7 @@ defmodule ExTwitter.MixProject do
   #     $ mix setup
   #
   # See the documentation for `Mix` for more info on aliases.
+
   defp aliases do
     [
       setup: ["deps.get", "ecto.setup", "cmd npm install --prefix assets"],
