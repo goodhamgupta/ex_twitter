@@ -41,4 +41,14 @@ defmodule ExTwitterWeb.PostLive.PostComponent do
       </div>
     """
   end
+
+  def handle_event("like", _, socket) do
+    ExTwitter.Timeline.inc_likes(socket.assigns.post)
+    {:noreply, socket}
+  end
+
+  def handle_event("repost", _, socket) do
+    ExTwitter.Timeline.inc_reposts(socket.assigns.post)
+    {:noreply, socket}
+  end
 end
